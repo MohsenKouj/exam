@@ -17,20 +17,19 @@
     </div>
     <div id="post"><h1>صفحه اصلی > وبلاگ</h1></div>
     <div class="content">
-        {% for i in post %}
         <div class="blog">
             <div class="pick">
                 <div id="stiky">
-                    <p><span>ناشر: </span>{{i.publisher}}</p>
-                    <p><span>زمان انتشار: </span>{{i.date_modified}}</p>
-                    <p><span>بازدید کننده: </span>{{i.c_view}}</p>
+                    <p><span>ناشر: </span>{{post.publisher}}</p>
+                    <p><span>زمان انتشار: </span>{{post.date_modified}}</p>
+                    <p><span>بازدید کننده: </span>{{post.c_view}}</p>
                 </div>
             </div>
             <div class="status">
                 <img src="{% static '1571774856481.jpg' %}" alt="Pic" id="pic"> 
-                <h1>{{i.title}}</h1>
+                <h1>{{post.title}}</h1>
                 <p>
-                    {{i.disc}}
+                    {{post.disc}}
                 </p>
                 <div class="comments">
                     <div class="p-comment">
@@ -40,7 +39,6 @@
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
     <div class="ref"></div>
 </body>
