@@ -46,10 +46,13 @@ def single(request,ids):
     p.c_view += 1
     p.save()
     if now.timestamp() > p.date_modified.timestamp():
-        context = {'post':Post.objects.get(id=ids)}
+        context = {
+            'post':Post.objects.get(id=ids),
+            'comments':Comment.objects.all()
+            }
         return render(request, 'single.html', context)
     else:
         
-        return HttpResponseNotFound(request,'No such post')
+        return HttpResponseNotFound(request)
         
         

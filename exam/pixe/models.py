@@ -14,6 +14,9 @@ class Post(models.Model):
         return f"{self.id}.{self.title}"
 
 class Comment(models.Model):
+    about = models.ForeignKey(Post,on_delete=models.SET_NULL,null=True)
     uname = models.CharField(max_length=255)
     date_modified = models.DateTimeField(auto_created=True)
     comment = models.TextField()
+    def __str__(self):
+        return f"{self.id} - {self.uname} - {self.about}"
