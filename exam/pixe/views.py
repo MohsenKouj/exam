@@ -1,15 +1,16 @@
 from django.shortcuts import render
+from django.utils import timezone as tz
 from django.http import Http404,HttpResponseNotFound
 from .models import *
 import datetime as dt
 
-now = dt.datetime.now()
+now = tz.now()
 class dataAdapt:
     context = dict(post = list())
-    def __init__(self,id,publisher,date_modified,c_views,title,disc):
+    def __init__(self,id,publisher,p_date,c_views,title,disc):
         self.id = id
         self.publisher = publisher
-        self.date_modified = date_modified
+        self.p_date = p_date
         self.c_view = c_views
         self.title = title
         self.disc = disc
@@ -17,7 +18,7 @@ class dataAdapt:
     def delete(self):
         del self.id
         del self.publisher
-        del self.date_modified
+        del self.p_date
         del self.c_view
         del self.title
         del self.disc
@@ -30,11 +31,11 @@ def post(request):
     context = dict(post=list())
     p = Post.objects.all()
     for i in p:
-        #ridate = i.date_modified.year + i.date_modified.month + i.date_modified.day + i.date_modified.hour + i.date_modified.minute + i.date_modified.second + i.date_modified.microsecond
-        ridate = i.date_modified.timestamp()
-        if ridate < rdate:
+        #ridate = i.p_date.year + i.p_date.month + i.p_date.day + i.p_date.hour + i.p_date.minute + i.p_date.second + i.p_date.microsecond
+        ridate = i.p_date.timestamp()
+        if ridate < rdate and i.status:
             context['post'].append(
-                dataAdapt(i.id,i.publisher,i.date_modified,i.c_view,i.title,i.disc)
+                dataAdapt(i.id,i.publisher,i.p_date,i.c_view,i.title,i.disc)
             )
             context['rdate'] = rdate
             context['ridate'] = ridate
@@ -45,7 +46,7 @@ def single(request,ids):
     p = Post.objects.get(id=ids)
     p.c_view += 1
     p.save()
-    if now.timestamp() > p.date_modified.timestamp():
+    if now.timestamp() > p.p_date.timestamp() and p.status:
         context = {
             'post':Post.objects.get(id=ids),
             'comments':Comment.objects.all()

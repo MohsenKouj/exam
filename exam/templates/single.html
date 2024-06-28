@@ -21,7 +21,7 @@
             <div class="pick">
                 <div id="stiky">
                     <p><span>ناشر: </span>{{post.publisher}}</p>
-                    <p><span>زمان انتشار: </span>{{post.date_modified}}</p>
+                    <p><span>زمان انتشار: </span>{{post.p_date}}</p>
                     <p><span>بازدید کننده: </span>{{post.c_view}}</p>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                     {% for c in comments %}
                     {% if c.about.id == post.id %}
                     <div class="p-comment">
-                        <div class="app"><div><img src="{% static 'images2.jpg' %}" alt="Pro" id="pro"></div><div><h3> {{c.uname}}-{{c.date_modified}} </h3></div></div>
+                        <div class="app"><div><img src="{% static 'images2.jpg' %}" alt="Pro" id="pro"></div><div><h3> {{c.uname}}-{{c.p_date}} </h3></div></div>
                         <div class="discription">{{c.comment}}</div>
                     </div>
                     {% endif %}

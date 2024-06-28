@@ -4,11 +4,11 @@ from django.db import models
 
 class Post(models.Model):
     publisher = models.CharField(max_length=470)
-    date_modified = models.DateTimeField(null=True)
+    p_date = models.DateTimeField(null=True)
     c_view = models.IntegerField(default=0)
     title = models.CharField(max_length=70,default="Null")
+    status = models.BooleanField(default=True)
     disc = models.TextField()
-    
     
     def __str__(self):
         return f"{self.id}.{self.title}"
