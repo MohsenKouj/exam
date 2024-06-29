@@ -7,13 +7,15 @@ import datetime as dt
 now = tz.now()
 class dataAdapt:
     context = dict(post = list())
-    def __init__(self,id,publisher,p_date,c_views,title,disc):
+    def __init__(self,id,publisher,p_date,c_views,title,disc,image,category):
         self.id = id
         self.publisher = publisher
         self.p_date = p_date
         self.c_view = c_views
         self.title = title
         self.disc = disc
+        self.image = image
+        self.category = category
 
     def delete(self):
         del self.id
@@ -22,6 +24,8 @@ class dataAdapt:
         del self.c_view
         del self.title
         del self.disc
+        del self.image
+        del self.category
  
        
 # Create your views here.
@@ -35,7 +39,7 @@ def post(request):
         ridate = i.p_date.timestamp()
         if ridate < rdate and i.status:
             context['post'].append(
-                dataAdapt(i.id,i.publisher,i.p_date,i.c_view,i.title,i.disc)
+                dataAdapt(i.id,i.publisher,i.p_date,i.c_view,i.title,i.disc,i.image,i.category)
             )
             context['rdate'] = rdate
             context['ridate'] = ridate

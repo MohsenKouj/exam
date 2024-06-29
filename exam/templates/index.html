@@ -21,12 +21,12 @@
         {% for i in post %}
         <div class="blog">
             <div class="pick">
+                <p><span>دسته‌بندی:</span>{{i.category.all|join:', '}}</p>
                 <p><span>ناشر: </span>{{i.publisher}}</p>
                 <p><span>زمان انتشار: </span>{{i.p_date}}</p>
                 <p><span>بازدید کننده: </span>{{i.c_view}}</p>
             </div>
             <div class="status">
-                """ {{i.image}} """
                 <img src="{{i.image.url}}" alt="Pic" id="pic"> 
                 <h1>{{i.title}}</h1>
                 <p>
