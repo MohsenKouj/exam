@@ -8,3 +8,4 @@ urlpatterns = [
     path('single/s-<int:ids>',single,name='single')
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
