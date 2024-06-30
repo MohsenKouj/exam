@@ -21,7 +21,7 @@
         {% if nextp != -1 %}
         <a href="{% url 'single' ids=nextp.id %}">
             <div id="prev">
-                <img src="{{prevp.image.url}}" alt="prev">
+                <img src="{{nextp.image.url}}" alt="prev">
                 <div>
                     <p>پست قبلی " {{prevp.image}} "</p>
                     <h3>{{nextp.title}}</h3>
@@ -80,6 +80,7 @@
                     {% endif %}
                     {% endfor %}
                 </div>
+                
             </div>
         </div>
     </div>

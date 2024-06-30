@@ -5,6 +5,7 @@ from django.http import Http404,HttpResponseNotFound
 from .models import *
 import datetime as dt
 
+
 now = tz.now()
 class dataAdapt:
     context = dict(post = list())
