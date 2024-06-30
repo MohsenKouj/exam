@@ -15,11 +15,21 @@
         </div>
         <button id="sign"></button>
     </div>
-    <div id="post"><h1>صفحه اصلی > وبلاگ</h1></div>
+    <div id="post">
+        <div id="prev">
+            <img src="{{prevp.image.url}}" alt="prev">
+            <h3>{{nextp.title}}</h3>
+        </div>
+        <div id="next">
+            <img src="{{prevp.image.url}}" alt="next">
+            <h3>{{prevp.title}}</h3>
+        </div>
+    </div>
     <div class="content">
         <div class="blog">
             <div class="pick">
                 <div id="stiky">
+                    <p><span>دسته‌بندی:</span>{{post.category.all|join:', '}}</p>
                     <p><span>ناشر: </span>{{post.publisher}}</p>
                     <p><span>زمان انتشار: </span>{{post.p_date}}</p>
                     <p><span>بازدید کننده: </span>{{post.c_view}}</p>

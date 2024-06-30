@@ -53,6 +53,8 @@ def single(request,ids):
     if now.timestamp() > p.p_date.timestamp() and p.status:
         context = {
             'post':Post.objects.get(id=ids),
+            'nextp':Post.objects.get(id=ids+1),
+            'prevp':Post.objects.get(id=ids-1),
             'comments':Comment.objects.all()
             }
         return render(request, 'single.html', context)

@@ -4,19 +4,19 @@
 @font-face {
    
     font-family: ir-sans;
-    src: url(A-Iranian-Sans/Iranian-Sans.ttf) format('truetype');
+    src: url(fonts/A-Iranian-Sans/Iranian-Sans.ttf) format('truetype');
 }
 @font-face {
     font-family: B-titr;
-    src: url(B-Titr/B-Titr-Bold_0.ttf) format('truetype');
+    src: url(fonts/B-Titr/B-Titr-Bold_0.ttf) format('truetype');
 }
 @font-face {
     font-family: m-m;
-    src: url(vazir-font-v16.1.0/Vazir.ttf) format('truetype');
+    src: url(fonts/vazir-font-v16.1.0/Vazir.ttf) format('truetype');
 }
 @font-face {
     font-family: m;
-    src: url(Mj_Mandana/Mj_Mandana_0.TTF) format('truetype');
+    src: url(fonts/Mj_Mandana/Mj_Mandana_0.TTF) format('truetype');
 }
 
 #s{
@@ -80,13 +80,28 @@
 }
 #post{
     width: 1200px;
-    display: block;
+    height: 200px;
+    display: flex;
     text-align: right;
     height: 50px;
     border-bottom: 2px solid #000;
     margin: 0 auto;
     font-family: ir-sans;
 }
+#prev,#next{
+    width: 50%;
+    height: inherit;
+    display: flex;
+}
+
+#prev img,#next img{
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+
+}
+
+
 .content{
     padding-top: 20px;
     width: 1200px;
