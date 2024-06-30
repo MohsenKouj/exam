@@ -18,15 +18,20 @@
         <button id="sign"></button>
     </div>
     <div id="post">
+        {% if nextp != -1 %}
         <a href="{% url 'single' ids=nextp.id %}">
             <div id="prev">
                 <img src="{{prevp.image.url}}" alt="prev">
                 <div>
-                    <p>پست قبلی</p>
+                    <p>پست قبلی " {{prevp.image}} "</p>
                     <h3>{{nextp.title}}</h3>
                 </div>
             </div>
         </a>
+        {% else %}
+        <div class="mean"></div>
+        {% endif %}
+        {% if prevp != -2 %}
         <a href="{% url 'single' ids=prevp.id %}">
         <div id="next">
             <img src="{{prevp.image.url}}" alt="next">
@@ -36,6 +41,9 @@
             </div>
         </div>
         </a>
+        {% else %}
+        <div class="mean"></div>
+        {% endif %}
     </div>
     <div class="content">
         <div class="blog">

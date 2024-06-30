@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render
 from django.utils import timezone as tz
 from django.http import Http404,HttpResponseNotFound
@@ -49,21 +50,32 @@ def post(request):
 
 
 def single(request,ids):
-    id_ = []
+    class id_:
+        i = []
+        def I(self):
+            return self.i
+        def index(self,indx):
+            if indx == "down":
+                return -2
+            elif indx == "up":
+                return -1
+            else:
+                return self.i[indx]
+    id_ = id_()
     ps = Post.objects.filter(status=True)
     for i in ps:
         if i.p_date.timestamp() < now.timestamp():
-            id_.append(i)
+            id_.i.append(i)
     p = Post.objects.get(id=ids)
     p.c_view += 1
     p.save()
-    realindex = id_.index(p)
+    realindex = id_.i.index(p)
 
     def conc(l,rindex):
         if rindex > l.__len__()-1:
-            return 0
+            return "up"
         elif rindex < 0:
-            return l.__len__()-1
+            return "down"
         else:
             return rindex
     
@@ -71,9 +83,9 @@ def single(request,ids):
     if now.timestamp() > p.p_date.timestamp() and p.status:
         context = {
             'post':Post.objects.get(id=ids),
-            'nextp':id_[conc(id_,realindex+1)],
-            'prevp':id_[conc(id_,realindex-1)],
-            'comments':Comment.objects.all()
+            'nextp':id_.index(conc(id_.i,realindex+1)),
+            'prevp':id_.index(conc(id_.i,realindex-1)),
+            'comments':Comment.objects.all(),
             }
         return render(request, 'single.html', context)
     else:
