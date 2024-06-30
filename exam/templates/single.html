@@ -1,12 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'single.css' %}">
 </head>
+
 <body>
     <div class="searchBar"> <span id="s">CatiraFlowers.Studio ♥</span>
         <div class="middle">
@@ -16,14 +18,24 @@
         <button id="sign"></button>
     </div>
     <div id="post">
-        <div id="prev">
-            <img src="{{prevp.image.url}}" alt="prev">
-            <h3>{{nextp.title}}</h3>
-        </div>
+        <a href="{% url 'single' ids=nextp.id %}">
+            <div id="prev">
+                <img src="{{prevp.image.url}}" alt="prev">
+                <div>
+                    <p>پست قبلی</p>
+                    <h3>{{nextp.title}}</h3>
+                </div>
+            </div>
+        </a>
+        <a href="{% url 'single' ids=prevp.id %}">
         <div id="next">
             <img src="{{prevp.image.url}}" alt="next">
-            <h3>{{prevp.title}}</h3>
+            <div>
+                <p>پست بعدی</p>
+                <h3>{{prevp.title}}</h3>
+            </div>
         </div>
+        </a>
     </div>
     <div class="content">
         <div class="blog">
@@ -36,7 +48,7 @@
                 </div>
             </div>
             <div class="status">
-                <img src="{% static '1571774856481.jpg' %}" alt="Pic" id="pic"> 
+                <img src="{% static '1571774856481.jpg' %}" alt="Pic" id="pic">
                 <h1>{{post.title}}</h1>
                 <p>
                     {{post.disc}}
@@ -45,7 +57,12 @@
                     {% for c in comments %}
                     {% if c.about.id == post.id %}
                     <div class="p-comment">
-                        <div class="app"><div><img src="{% static 'images2.jpg' %}" alt="Pro" id="pro"></div><div><h3> {{c.uname}}-{{c.p_date}} </h3></div></div>
+                        <div class="app">
+                            <div><img src="{% static 'images2.jpg' %}" alt="Pro" id="pro"></div>
+                            <div>
+                                <h3> {{c.uname}}-{{c.p_date}} </h3>
+                            </div>
+                        </div>
                         <div class="discription">{{c.comment}}</div>
                     </div>
                     {% endif %}
@@ -56,4 +73,5 @@
     </div>
     <div class="ref"></div>
 </body>
+
 </html>

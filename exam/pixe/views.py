@@ -46,15 +46,33 @@ def post(request):
             
     return render(request, 'index.html',context)
 
+
+
 def single(request,ids):
+    id_ = []
+    ps = Post.objects.filter(status=True)
+    for i in ps:
+        if i.p_date.timestamp() < now.timestamp():
+            id_.append(i)
     p = Post.objects.get(id=ids)
     p.c_view += 1
     p.save()
+    realindex = id_.index(p)
+
+    def conc(l,rindex):
+        if rindex > l.__len__()-1:
+            return 0
+        elif rindex < 0:
+            return l.__len__()-1
+        else:
+            return rindex
+    
+        
     if now.timestamp() > p.p_date.timestamp() and p.status:
         context = {
             'post':Post.objects.get(id=ids),
-            'nextp':Post.objects.get(id=ids+1),
-            'prevp':Post.objects.get(id=ids-1),
+            'nextp':id_[conc(id_,realindex+1)],
+            'prevp':id_[conc(id_,realindex-1)],
             'comments':Comment.objects.all()
             }
         return render(request, 'single.html', context)
