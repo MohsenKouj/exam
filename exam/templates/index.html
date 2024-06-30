@@ -23,14 +23,14 @@
             <div class="pick">
                 <p><span>دسته‌بندی:</span>{{i.category.all|join:', '}}</p>
                 <p><span>ناشر: </span>{{i.publisher}}</p>
-                <p><span>زمان انتشار: </span>{{i.p_date}}</p>
+                <p><span>زمان انتشار: </span>{{i.p_date|date:"Y/m/d"}}</p>
                 <p><span>بازدید کننده: </span>{{i.c_view}}</p>
             </div>
             <div class="status">
                 <img src="{{i.image.url}}" alt="Pic" id="pic"> 
                 <h1>{{i.title}}</h1>
                 <p>
-                    {{i.disc}}
+                    {{i.disc|truncatewords:40}}
                 </p>
                 <a href="{% url 'single' ids=i.id %}"><button id="smore">مطالب بیشتر</button></a>
             </div>

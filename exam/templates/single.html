@@ -41,9 +41,13 @@
         <div class="blog">
             <div class="pick">
                 <div id="stiky">
-                    <p><span>دسته‌بندی:</span>{{post.category.all|join:', '}}</p>
+                    <p><span>دسته‌بندی:</span>
+                        {% for c in post.category.all %}
+                        {{c.name}}{% if not forloop.last %} ،{% endif %}
+                        {% endfor %}
+                    </p>
                     <p><span>ناشر: </span>{{post.publisher}}</p>
-                    <p><span>زمان انتشار: </span>{{post.p_date}}</p>
+                    <p><span>زمان انتشار: </span>{{post.p_date|date:'Y/m/d'}}</p>
                     <p><span>بازدید کننده: </span>{{post.c_view}}</p>
                 </div>
             </div>
