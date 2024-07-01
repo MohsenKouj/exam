@@ -18,11 +18,14 @@
     </div>
     <div id="post"><h1>صفحه اصلی > وبلاگ</h1></div>
     <div class="content">
-        {{rdate}} vs {{ridate}}
         {% for i in post %}
         <div class="blog">
             <div class="pick">
-                <p><span>دسته‌بندی:</span>{{i.category.all|join:', '}}</p>
+                <p><span>دسته‌بندی:</span>
+                    {% for c in i.category.all %}
+                    <a href="{% url 'category' name=c.name %}">{{c.name}}</a>{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
                 <p><span>ناشر: </span>{{i.publisher}}</p>
                 <p><span>زمان انتشار: </span>{{i.p_date|date:"Y/m/d"}}</p>
                 <p><span>بازدید کننده: </span>{{i.c_view}}</p>

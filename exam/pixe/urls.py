@@ -5,5 +5,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     #path('admin/', admin.site.urls),
     path('',post,name='post'),
-    path('single/s-<int:ids>',single,name='single')
+    path('single/s-<int:ids>',single,name='single'),
+    path('category/<str:name>',post,name='category')
 ]

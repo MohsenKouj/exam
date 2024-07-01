@@ -31,11 +31,13 @@ class dataAdapt:
  
        
 # Create your views here.
-def post(request):
+def post(request,name=None):
     #rdate = now.year + now.month + now.day + now.hour + now.minute + now.second + now.microsecond
     rdate = now.timestamp()
     context = dict(post=list())
     p = Post.objects.all()
+    if name:
+        p = p.filter(category__name=name)
     for i in p:
         #ridate = i.p_date.year + i.p_date.month + i.p_date.day + i.p_date.hour + i.p_date.minute + i.p_date.second + i.p_date.microsecond
         ridate = i.p_date.timestamp()
@@ -94,3 +96,7 @@ def single(request,ids):
         return HttpResponseNotFound(request)
         
         
+def cat(request,name):
+    p = Post.objects.filter(status=1)
+    p = p.filter(category__name=name)
+    return render(request, 'index.html',{'post':p})

@@ -1,0 +1,6 @@
+
+{% for i in post %}
+{% for c in i.category.all %}
+<span>{{ c.name }}</span> ,
+{% endfor %}
+{% endfor %}
