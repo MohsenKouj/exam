@@ -13,15 +13,16 @@
         <div class="middle">
             <form action="{% url 'search' %}" method="get">
                 <input type="text" name="s" id="tsrc">
-                <input type="submit" id="src"></input>
+                <input type="submit" id="src" value="">
             </form>
         </div>
         <button id="sign"></button>
     </div>
     <div id="post"><h1>صفحه اصلی > وبلاگ</h1></div>
     <div class="content">
-        {% for i in post %}
+        {% for i in posts %}
         <div class="blog">
+            
             <div class="pick">
                 <p><span>دسته‌بندی:</span>
                     {% for c in i.category.all %}
@@ -42,6 +43,33 @@
             </div>
         </div>
         {% endfor %}
+    </div>
+    
+    <div class="pages">
+       
+        {% if posts.has_previous %}
+        <a href="?pages={{posts.previous_page_number}}"><--</a>
+        {% endif %}
+       
+
+        <span>
+            {% for i in pages.page_range %}
+                {% if i == posts.number %}
+                <a href="?pages={{i}}" id="pols">{{i}}</a>
+                {% else %}
+                <a href="?pages={{i}}">{{i}}</a>
+                {% endif %}
+            {% endfor %}
+        </span>
+
+        {% if posts.has_next %}
+        <a href="?pages={{posts.next_page_number}}">--></a>
+        {% endif %}
+        
+    </div>
+    <div class="latest">
+        <p><h3>آخرین پست ها:</h3></p>
+        {% latepost %}
     </div>
     <div class="ref"></div>
     <script src="{% static 'js/hrefRender.min.js' %}"></script>

@@ -46,7 +46,7 @@
     background-image: url(icons8-login-50.png);
     background-size: contain;
     position: relative;
-    top:17px;
+    top:20px;
     border-width: 0;
     border-radius: 100%;
     margin-left: 90px;
@@ -66,12 +66,13 @@
     background-image: url(icons8-search-60.png);
     background-size: contain;
     position: relative;
-    top:17px;
+    top:-4px;
     border-width: 0;
     border-radius: 100%;
     
 }
 #tsrc{
+    margin-top: 15px;
     width: 400px;
     height: 50px;
     border-radius: 10px;
@@ -109,12 +110,15 @@
     padding-top: 10px;
     font-family: ir-sans;
     font-weight: 600;
+    text-decoration: none;
 }
 
 .pick span{
     font-weight: bold;
-    color:goldenrod
+    color:goldenrod;
+    text-decoration: none;
 }
+
 
 .status p{
     color:#454545;
@@ -228,4 +232,73 @@
     font-size: 14px;
     font-weight: 500;
     margin-right: 50px;
+}
+.pages{
+    margin-top: 40px;
+    font-size: 30px;
+    width: auto;
+    text-align: center;
+
+}
+.pages a{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #eacb99;
+    border-color: #e4b569;
+    border-style: solid;
+    border-width: 1.5px;
+    color:#000
+}
+#pols{
+    background-color: #99a7ea;
+    border-color: #698ee4;
+    color:#000
+}
+.latest{
+    width: 1200px;
+    height: fit-content;
+    direction: rtl;
+    background-color: hsla(40, 100%, 68%, 0.507);
+    border-color: hsl(40, 100%, 68%);
+    border-style: solid;
+    border-width: 3px;
+    margin: 10px auto;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+.latest h3{
+    font-size: 26px;
+    font-family: B-titr;
+}
+.ops{
+    display: flex;
+    width: inherit;
+    height: 100px;
+    margin-right: 10px;
+
+
+}
+.ops img{
+    width: 60px;
+    height: 60px;
+    border-color: #698ee4;
+    border-width: 1.5px;
+    border-style: solid;
+    border-radius: 10px;
+}
+.ops h3{
+    margin-right: 10px;
+    font-size: 16px;
+    font-family: m;
+}
+.pick a:hover,.latest a:hover{
+    color:hsl(239, 81%, 42%)
+}
+.pick a, .latest a{
+    text-decoration: none;
+    color:#000;
+
 }

@@ -2,6 +2,7 @@ from typing import Any
 from django.shortcuts import render
 from django.utils import timezone as tz
 from django.http import Http404,HttpResponseNotFound
+from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 from .models import *
 import datetime as dt
 
@@ -34,25 +35,24 @@ class dataAdapt:
 def post(request,name=None,namep=None):
     #rdate = now.year + now.month + now.day + now.hour + now.minute + now.second + now.microsecond
     rdate = now.timestamp()
-    context = dict(post=list())
-    p = Post.objects.all()
+    p = Post.objects.filter(status=1)
     
     if name:
         p = p.filter(category__name=name)
     elif namep:
         p = p.filter(publisher=namep)
+    ps = Paginator(p,3)
+    
+    try:
+        pn = request.GET.get('pages')
+    except PageNotAnInteger:
+        pn = 1
+    except EmptyPage:
+        pn = 1
         
-    for i in p:
-        #ridate = i.p_date.year + i.p_date.month + i.p_date.day + i.p_date.hour + i.p_date.minute + i.p_date.second + i.p_date.microsecond
-        ridate = i.p_date.timestamp()
-        if ridate < rdate and i.status:
-            context['post'].append(
-                dataAdapt(i.id,i.publisher,i.p_date,i.c_view,i.title,i.disc,i.image,i.category)
-            )
-            context['rdate'] = rdate
-            context['ridate'] = ridate
-            
-    return render(request, 'index.html',context)
+        
+    p = ps.get_page(pn)
+    return render(request, 'index.html',{'posts': p,'pages':ps})
 
 
 

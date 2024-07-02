@@ -1,0 +1,9 @@
+{% for p in post %}
+<a href="{% url 'single' ids=p.id %}">
+<div class="ops">
+    
+        <img src="{{ p.image.url }}" alt="image-{{p.id}}">
+        <h3>{{ p.title }}</h3>
+ </div>
+</a>
+{% endfor %}
