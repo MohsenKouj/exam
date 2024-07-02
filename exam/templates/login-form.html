@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+
+<body>
+    <div class="contain">
+        <form action="" method="post">
+            <div class="flex">
+                <div >نام کاربری<br><br>
+                    گذرواژه<br><br>
+                    ایمیل<br><br>
+                    تاریخ تولد<br><br>
+                </div>
+                <div>
+                    <input type="text"><br><br>
+                    <input type="password"><br><br>
+                    <input type="email" name="" id=""><br><br>
+                    <input type="date" name="" id=""><br><br>
+                </div>
+            </div>
+            زن<input type="checkbox">
+            مرد<input type="checkbox"><br><br>
+            <input type="submit" value="ارسال">
+
+        </form>
+    </div>
+</body>
+
+</html>

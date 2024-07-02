@@ -112,3 +112,6 @@ def search_post(request):
             posts = posts.filter(disc__contains=s)
             
     return render(request, 'index.html',{'post':posts})
+
+def loging(request):
+    return render(request, 'login-form.html')
