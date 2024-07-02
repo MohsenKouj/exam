@@ -104,3 +104,11 @@ def cat(request,name):
     p = Post.objects.filter(status=1)
     p = p.filter(category__name=name)
     return render(request, 'index.html',{'post':p})
+
+def search_post(request):
+    posts = Post.objects.filter(status=1)
+    if request.method == 'GET':
+        if s := request.GET.get('s'):
+            posts = posts.filter(disc__contains=s)
+            
+    return render(request, 'index.html',{'post':posts})

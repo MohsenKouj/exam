@@ -11,8 +11,10 @@
 <body>
     <div class="searchBar"> <span id="s">CatiraFlowers.Studio ♥</span>
         <div class="middle">
-            <input type="text" name="src" id="tsrc">
-            <button id="src"></button>
+            <form action="{% url 'search' %}" method="get">
+                <input type="text" name="s" id="tsrc">
+                <input type="submit" id="src"></input>
+            </form>
         </div>
         <button id="sign"></button>
     </div>

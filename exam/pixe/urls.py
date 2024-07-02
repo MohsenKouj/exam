@@ -8,4 +8,5 @@ urlpatterns = [
     path('single/s-<int:ids>',single,name='single'),
     path('category/<str:name>',post,name='category'),
     path('publisher/<str:namep>',post,name='publisher'),
+    path('search/',search_post,name='search'),
 ]
