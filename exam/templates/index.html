@@ -1,24 +1,8 @@
+{% extends 'base.html' %}
 {% load static %}
 {% load Post_t %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'index.css' %}">
-</head>
-<body>
-    <div class="searchBar"> <span id="s">CatiraFlowers.Studio ♥</span>
-        <div class="middle">
-            <form action="{% url 'search' %}" method="get">
-                <input type="text" name="s" id="tsrc">
-                <input type="submit" id="src" value="">
-            </form>
-        </div>
-        <button id="sign"></button>
-    </div>
-    <div id="post"><h1>صفحه اصلی > وبلاگ</h1></div>
+{% block middle %}
+<div id="post"><h1>صفحه اصلی > وبلاگ</h1></div>
     <div class="content">
         {% for i in posts %}
         <div class="blog">
@@ -67,11 +51,4 @@
         {% endif %}
         
     </div>
-    <div class="latest">
-        <p><h3>آخرین پست ها:</h3></p>
-        {% latepost %}
-    </div>
-    <div class="ref"></div>
-    <script src="{% static 'js/hrefRender.min.js' %}"></script>
-</body>
-</html>
+{% endblock %}

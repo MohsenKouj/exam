@@ -1,22 +1,8 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% load Post_t %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'single.css' %}">
-</head>
-
-<body>
-    <div class="searchBar"> <span id="s">CatiraFlowers.Studio ♥</span>
-        <div class="middle">
-            <input type="text" name="src" id="tsrc">
-            <button id="src"></button>
-        </div>
-        <button id="sign"></button>
-    </div>
+{% block middle %}
     <div id="post">
         {% if nextp != -1 %}
         <a href="{% url 'single' ids=nextp.id %}">
@@ -65,26 +51,25 @@
                 <p>
                     {{post.disc}}
                 </p>
-                <div class="comments">
-                    {% for c in comments %}
-                    {% if c.about.id == post.id %}
-                    <div class="p-comment">
-                        <div class="app">
-                            <div><img src="{% static 'images2.jpg' %}" alt="Pro" id="pro"></div>
-                            <div>
-                                <h3> {{c.uname}}-{{c.p_date}} </h3>
-                            </div>
-                        </div>
-                        <div class="discription">{{c.comment}}</div>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                </div>
-                
             </div>
         </div>
+        <div class="comments">
+            {% for c in comments %}
+            {% if c.about.id == post.id %}
+            <div class="p-comment">
+                <div class="app">
+                    <div><img src="{% static 'images2.jpg' %}" alt="Pro" id="pro"></div>
+                    <div>
+                        <h3> {{c.uname}}-{{c.date_modified}} </h3>
+                    </div>
+                </div>
+                <div class="discription">{{c.comment}}</div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
     </div>
-    <div class="ref"></div>
+   {% endblock %}
 </body>
 
 </html>

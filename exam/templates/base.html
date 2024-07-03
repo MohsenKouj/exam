@@ -1,0 +1,34 @@
+{% load static %}
+{% load Post_t %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'single.css' %}">
+</head>
+<body>
+    <div class="searchBar"> <span id="s">CatiraFlowers.Studio ♥</span>
+        <div class="middle">
+            <form action="{% url 'search' %}" method="get">
+                <input type="text" name="s" id="tsrc">
+                <input type="submit" id="src" value="">
+            </form>
+        </div>
+        <button id="sign"></button>
+    </div>
+    {% block middle %}
+    <!-- 
+    middle 
+    -->
+    {% endblock %}
+    <div class="latest">
+        <p><h3>آخرین پست ها:</h3></p>
+        {% latepost %}
+    </div>
+    <div class="ref"></div>
+    <script src="{% static 'js/hrefRender.min.js' %}"></script>
+</body>
+</html>
