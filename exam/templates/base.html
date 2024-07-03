@@ -18,7 +18,10 @@
                 <input type="submit" id="src" value="">
             </form>
         </div>
-        <button id="sign"></button>
+        <a href="{% url 'login' %}"><button id="sign"></button></a>
+    </div>
+    <div class="pop-up">
+        <p>پیام شما بردستی دریافت شد✔</p>
     </div>
     {% block middle %}
     <!-- 

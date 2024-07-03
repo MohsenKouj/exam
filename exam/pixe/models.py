@@ -32,8 +32,7 @@ class Users(models.Model):
     password = models.CharField(max_length=255)
     email = models.EmailField(max_length=255)
     birthday = models.DateField()
-    male = models.BooleanField(default=False)
-    female = models.BooleanField(default=False)
+    subject = models.TextField(default=None,null=True)
     
     
     def __str__(self):

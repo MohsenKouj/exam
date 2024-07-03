@@ -3,7 +3,7 @@
 {% load Post_t %}
 
 {% block middle %}
-    <div id="post">
+    <div id="post2">
         {% if nextp != -1 %}
         <a href="{% url 'single' ids=nextp.id %}">
             <div id="prev">
@@ -15,11 +15,11 @@
             </div>
         </a>
         {% else %}
-        <div class="mean"></div>
+        <div class="mean2"></div>
         {% endif %}
         {% if prevp != -2 %}
         <a href="{% url 'single' ids=prevp.id %}">
-        <div id="next">
+        <div id="next2">
             <img src="{{prevp.image.url}}" alt="next">
             <div>
                 <p>پست بعدی</p>
@@ -28,13 +28,13 @@
         </div>
         </a>
         {% else %}
-        <div class="mean"></div>
+        <div class="mean2"></div>
         {% endif %}
     </div>
-    <div class="content">
-        <div class="blog">
-            <div class="pick">
-                <div id="stiky">
+    <div class="content2">
+        <div class="blog2">
+            <div class="pick2">
+                <div id="stiky2">
                     <p><span>دسته‌بندی:</span>
                         {% for c in post.category.all %}
                         {{c.name}}{% if not forloop.last %} ،{% endif %}
@@ -45,8 +45,8 @@
                     <p><span>بازدید کننده: </span>{{post.c_view}}</p>
                 </div>
             </div>
-            <div class="status">
-                <img src="{% static '1571774856481.jpg' %}" alt="Pic" id="pic">
+            <div class="status2">
+                <img src="{% static '1571774856481.jpg' %}" alt="Pic" id="pic2">
                 <h1>{{post.title}}</h1>
                 <p>
                     {{post.disc}}

@@ -46,7 +46,6 @@
     background-image: url(icons8-login-50.png);
     background-size: contain;
     position: relative;
-    top:17px;
     border-width: 0;
     border-radius: 100%;
     margin-left: 90px;
@@ -66,7 +65,6 @@
     background-image: url(icons8-search-60.png);
     background-size: contain;
     position: relative;
-    top:17px;
     border-width: 0;
     border-radius: 100%;
     
@@ -79,10 +77,10 @@
     outline-width: 0;
 }
 
-#post{
+#post2{
 
     width: 1200px;
-    height: fit-content;
+    height: fit-content2;
     display: flex;
     text-align: right;
     border-bottom: 2px solid #000;
@@ -93,26 +91,26 @@
     padding-bottom: 5px;
 
 }
-.mean{
+.mean2{
     width: inherit;
     height: inherit;
     display: block;
 }
-#prev,#next{
+#prev,#next2{
     width: 590px;
     height: inherit;
     display: flex;
     background-color: hsl(43, 100%, 95%);
 }
-#prev:hover,#next:hover{
+#prev:hover,#next2:hover{
     background-color: hsl(43, 26%, 73%);
     cursor: pointer;
     transition: all 200ms ease-in;
 }
-#prev h3,#next h3{
+#prev h3,#next2 h3{
     font-family: m;
 }
-#prev img,#next img{
+#prev img,#next2 img{
     width: 100px;
     height: 100px;
     background-size: cover;
@@ -120,20 +118,20 @@
     border-radius: 5px;
 }
 
-#next{
+#next2{
     direction: rtl;
 }
 #prev{
     text-align: left;
 }
 
-.content{
+.content2{
     padding-top: 20px;
     width: 1200px;
     margin: 0 auto;
-    height: fit-content;
+    height: fit-content2;
 }
-.blog{
+.blog2{
     margin-top: 20px;
     display: flex;
     gap: 30px;
@@ -142,7 +140,7 @@
 
 
 }
-.pick{
+.pick2{
     width: 85vw;
     height: inherit;
     direction: rtl;
@@ -153,22 +151,22 @@
     font-weight: 600;
 }
 
-.pick span{
+.pick2 span{
     font-weight: bold;
     color:goldenrod
 }
 
-.status p{
+.status2 p{
     color:#454545;
     font-size: 19px;
     font-weight: 600;
     text-align: justify;
-    height: fit-content;
+    height: fit-content2;
     width: 948px;
 }
 
 .comments{
-    height: fit-content;
+    height: fit-content2;
     /*border-bottom: 2px solid #000;*/
     padding-top: 30px;
     display: block;
@@ -176,7 +174,7 @@
 }
 
 
-.status{
+.status2{
     height: 700px;
     direction: rtl;
     padding-right: 20px;
@@ -185,7 +183,7 @@
 
 }
 
-.status h1{
+.status2 h1{
     margin: 10px 0 0 0 ;
     padding-right: 20px;
     display: block;
@@ -195,7 +193,7 @@
     border-radius: 20px;
     /*color:goldenrod*/
 }
-#pic{
+#pic2{
     display: inline-block;
     width: 100%;
     height: 500px;
@@ -247,7 +245,7 @@
     font-weight: 500;
     margin-right: 50px;
 }
-#stiky{
+#stiky2{
     position: sticky;
     top: 30px;
 }

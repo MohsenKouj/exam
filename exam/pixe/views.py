@@ -114,11 +114,18 @@ def search_post(request):
     return render(request, 'index.html',{'post':posts})
 
 from .forms import usersForm,formic
+from .models import Users
 def loging(request):
     if request.method == 'POST':
-        form = usersForm(request.POST)
+        form = formic(request.POST)
         if form.is_valid():
-            form.save()
+            users = Users()
+            users.name = 'ناشناس'
+            users.password = form.cleaned_data['password']
+            users.subject = form.cleaned_data['subject']
+            users.email = form.cleaned_data['email']
+            users.birthday = form.cleaned_data['birthday']
+            users.save()
         else:
             return HttpResponse('Invalid items returned')
-    return render(request, 'login-form.html',{"formic":usersForm})
+    return render(request, 'login-form.html',{"formic":formic})
