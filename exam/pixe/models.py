@@ -27,3 +27,15 @@ class Comment(models.Model):
     def __str__(self):
         return f"{self.id} - {self.uname} - {self.about}"
     
+class Users(models.Model):
+    name = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
+    birthday = models.DateField()
+    male = models.BooleanField(default=False)
+    female = models.BooleanField(default=False)
+    
+    
+    def __str__(self):
+        return self.name
+    

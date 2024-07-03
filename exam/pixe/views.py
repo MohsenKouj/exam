@@ -1,7 +1,7 @@
 from typing import Any
 from django.shortcuts import render
 from django.utils import timezone as tz
-from django.http import Http404,HttpResponseNotFound
+from django.http import Http404,HttpResponseNotFound,HttpResponse
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 from .models import *
 import datetime as dt
@@ -113,5 +113,12 @@ def search_post(request):
             
     return render(request, 'index.html',{'post':posts})
 
+from .forms import usersForm,formic
 def loging(request):
-    return render(request, 'login-form.html')
+    if request.method == 'POST':
+        form = usersForm(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            return HttpResponse('Invalid items returned')
+    return render(request, 'login-form.html',{"formic":usersForm})

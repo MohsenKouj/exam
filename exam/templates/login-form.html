@@ -11,22 +11,9 @@
 
 <body>
     <div class="contain">
-        <form action="" method="post">
-            <div class="flex">
-                <div >نام کاربری<br><br>
-                    گذرواژه<br><br>
-                    ایمیل<br><br>
-                    تاریخ تولد<br><br>
-                </div>
-                <div>
-                    <input type="text"><br><br>
-                    <input type="password"><br><br>
-                    <input type="email" name="" id=""><br><br>
-                    <input type="date" name="" id=""><br><br>
-                </div>
-            </div>
-            زن<input type="checkbox">
-            مرد<input type="checkbox"><br><br>
+        <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                {{formic.as_p}}
             <input type="submit" value="ارسال">
 
         </form>
